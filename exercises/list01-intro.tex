@@ -1,0 +1,254 @@
+\documentclass[a4,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[english, russian]{babel}
+
+
+
+\usepackage{tcolorbox}
+% Определяем окружение для Формата ввода
+\newtcolorbox{inputformat}[1][]{colback=blue!5!white, colframe=blue!65!black,
+    fonttitle=\bfseries, title=Формат ввода, #1}
+
+% Определяем окружение для Формата вывода
+\newtcolorbox{outputformat}[1][]{colback=green!5!white, colframe=green!65!black,
+    fonttitle=\bfseries, title=Формат вывода, #1}
+
+% Определяем окружение для комментария
+\newtcolorbox{exercisecomment}[1][]{colback=yellow!5!white, colframe=yellow!80!black, fonttitle=\bfseries, title=Комментарий, #1}
+
+% Определяем окружение для замечания
+\newtcolorbox{exercisenote}[1][]{colback=red!5!white, colframe=red!80!black, fonttitle=\bfseries, title=Замечание, #1}
+
+
+\usepackage{geometry}
+%\geometry{papersize={20.3 cm,25.4 cm}}
+\geometry{left=2cm}
+\geometry{right=2cm}
+\geometry{top=2cm}
+\geometry{bottom=2cm}
+
+
+\usepackage{amsmath, amsfonts, amsthm, amssymb, amsopn, amscd}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage[mathscr]{eucal}
+
+\usepackage{hyperref}
+\hypersetup{unicode=true,final=true,colorlinks=true}
+
+\theoremstyle{remark}
+%\newtheorem{exercise}{Упражнение}
+\newtheorem{exercise}{\textbf{Упражнение}}[section]
+\renewcommand{\theexercise}{\textbf{\arabic{exercise}}}
+%\renewcommand{\theexercise}{\textbf{\#\arabic{exercise}}}
+
+
+\title{Листок 01. Ввод, вывод данных и переменные в Python}
+
+\author{А.Н. Лата}
+
+\begin{document}
+
+%\maketitle
+
+%\tableofcontents
+
+\section*{\centering Листок 01. Ввод, вывод данных и переменные в Python}
+
+\begin{exercisenote}[title=Замечания]
+\begin{itemize}
+    \item для решение приведенных ниже упражнений не требуется создавать (определять) пользовательские функции.
+    \item при решении упражнений полученные результаты выведите на экран с помощью функции {\color{blue}{print()}}.
+    \item позаботесь о том, чтобы выводимый на экран результат был снабжен информацией о нем, там где это необходимо.
+    \item не забывайте писать комментарии к вашему коду
+\end{itemize}
+\end{exercisenote}
+
+
+\begin{exercise}[Приветствие пользователя]
+%Запросите у пользователя его
+Напишите программу, которая запрашивает имя и возраст пользователя, и выводит приветствие и возраст пользователя в следующем году
+\begin{enumerate}[label=\textbf{\alph*)}]
+    \item без использования f-строки
+    \item с использованием f-строки
+\end{enumerate}
+
+\begin{inputformat}
+Катя\\
+14
+\end{inputformat}
+    
+\begin{outputformat}
+Привет, Катя!\\
+В следующем году тебе будет 15!
+\end{outputformat}
+
+\begin{exercisecomment}
+Фраза \textbf{<<Напишите программу, которая запрашивает>>} равносильна фразе \textbf{<<Запросите у пользователя>>}.
+\end{exercisecomment}
+
+\end{exercise}
+
+\begin{exercise}
+Напишите программу, которая запрашивает имя, фамилию и возраст пользователя, а затем выводит эти данные в столбик % с помощью $f$-строки.
+\begin{enumerate}[label=\textbf{\alph*)}]
+    \item без использования f-строки
+    \item с использованием f-строки
+\end{enumerate}
+
+\begin{inputformat}
+Евгения\\
+Фролова\\
+19
+\end{inputformat}
+    
+\begin{outputformat}
+Имя: Евгения\\
+Фамилия: Фролова\\
+Возраст: 19
+\end{outputformat}
+
+\end{exercise}
+
+\begin{exercise}[Сложение чисел]
+Запросите у пользователя два числа и выведите их сумму
+\begin{enumerate}[label=\textbf{\alph*)}]
+    \item без использования f-строки
+    \item с использованием f-строки
+\end{enumerate}
+\begin{inputformat}
+3\\
+5
+\end{inputformat}
+    
+\begin{outputformat}
+Сумма чисел 3 и 5 равна 8.
+\end{outputformat}
+\end{exercise}
+
+\begin{exercise}
+%Напишите программу, которая получает на вход 
+Запросите у пользователя целое число $n$ из диапазона от 1 до 9 включительно, и выведите результат вычисления выражения $nnn - nn - n$. %Например, если введенное число 3, программа должна вывести 297 (333 – 33 – 3).
+
+\begin{inputformat}
+Введенно число 3
+\end{inputformat}
+    
+\begin{outputformat}
+Программа должна вывести 297 (так как 333 – 33 – 3)
+\end{outputformat}
+
+\end{exercise}
+
+\begin{exercise}[Периметр прямоугольника]
+Запросите у пользователя длину и ширину прямоугольника и выведите его периметр
+\begin{enumerate}[label=\textbf{\alph*)}]
+    \item без использования f-строки
+    \item с использованием f-строки
+\end{enumerate}
+\begin{inputformat}
+3\\
+4
+\end{inputformat}
+    
+\begin{outputformat}
+Периметр прямоугольника: 14
+\end{outputformat}
+\end{exercise}
+
+\begin{exercise}[Остаток от деления]
+Запросите у пользователя два числа и выведите остаток от их деления.
+
+\begin{inputformat}
+5\\
+3
+\end{inputformat}
+
+\begin{outputformat}
+Остаток от деления 5 на 3 равен 2
+\end{outputformat}
+\end{exercise}
+
+\begin{exercise}[Округление числа]
+Запросите у пользователя вещественное число и выведите его, округлённое до двух знаков после запятой
+\begin{enumerate}[label=\textbf{\alph*)}]
+    \item без использования f-строки
+    \item с использованием f-строки
+\end{enumerate}
+\begin{inputformat}
+6.7896
+\end{inputformat}
+
+\begin{outputformat}
+Число 6.7896 округлённое до двух знаков: 6.79
+\end{outputformat}
+\end{exercise}
+
+\begin{exercise}[Температура в Фаренгейтах]
+Запросите у пользователя температуру в Цельсиях и переведите её в Фаренгейты по формуле: $F=\dfrac{9}{5}C + 32$ с точностью до 2-х десятичных знаков.
+
+\begin{inputformat}
+0
+\end{inputformat}
+
+\begin{outputformat}
+Температура в Фаренгейтах: 32
+\end{outputformat}
+\end{exercise}
+
+\begin{exercise}[Среднее арифметическое]
+Запросите у пользователя три числа и выведите их среднее арифметическое с точностью до 2-х десятичных знаков.
+
+\begin{inputformat}
+2\\
+-3\\
+7
+\end{inputformat}
+
+\begin{outputformat}
+Среднее арифметическое чисел 2, -3 и 7 равно 2
+\end{outputformat}
+\end{exercise}
+
+\begin{exercise}[Минимум и максимум]
+Запросите у пользователя три числа и выведите минимальное и максимальное из них.
+
+\begin{inputformat}
+3\\
+-1\\
+5
+\end{inputformat}
+
+\begin{outputformat}
+Минимальное число: -1, максимальное число: 5
+\end{outputformat}
+\end{exercise}
+
+\begin{exercise}[Возведение в степень]
+Запросите у пользователя число и степень, затем выведите результат возведения числа в эту степень. 
+
+\begin{inputformat}
+2\\
+3
+\end{inputformat}
+
+\begin{outputformat}
+2 в степени 3 равно 8
+\end{outputformat}
+\end{exercise}
+
+\begin{exercise}[Длина гипотенузы]
+Запросите у пользователя длины катетов прямоугольного треугольника и выведите длину гипотенузы, используя теорему Пифагора, с точностью до 2-х десятичных знаков.
+
+\begin{inputformat}
+3\\
+4
+\end{inputformat}
+
+\begin{outputformat}
+Гипотенуза треугольника с катетами 3 и 4 равна 5
+\end{outputformat}
+\end{exercise}
+
+\end{document}
