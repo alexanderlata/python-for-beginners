@@ -7,6 +7,7 @@
 |`exercises`|Листочки с заданиями|
 |`jupyter-notebooks`|Разбор примеров|
 |`README`|Этот файл|
+|`Markdown-docs.md`|Руководство по оформлению Markdown файлов|
 
 ## Задачи
 
