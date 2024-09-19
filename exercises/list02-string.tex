@@ -1,0 +1,176 @@
+\documentclass[a4,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[english, russian]{babel}
+
+
+\usepackage{csquotes}
+\usepackage{epigraph}
+\usepackage{tcolorbox}
+% Определяем окружение для Формата ввода
+\newtcolorbox{inputformat}[1][]{colback=blue!5!white, colframe=blue!65!black,
+    fonttitle=\bfseries, title=Формат ввода, #1}
+
+% Определяем окружение для Формата вывода
+\newtcolorbox{outputformat}[1][]{colback=green!5!white, colframe=green!65!black,
+    fonttitle=\bfseries, title=Формат вывода, #1}
+
+% Определяем окружение для комментария
+\newtcolorbox{exercisecomment}[1][]{colback=yellow!5!white, colframe=yellow!80!black, fonttitle=\bfseries, title=Комментарий, #1}
+
+% Определяем окружение для замечания
+\newtcolorbox{exercisenote}[1][]{colback=red!5!white, colframe=red!80!black, fonttitle=\bfseries, title=Замечание, #1}
+
+
+\usepackage{geometry}
+%\geometry{papersize={20.3 cm,25.4 cm}}
+\geometry{left=2cm}
+\geometry{right=2cm}
+\geometry{top=2cm}
+\geometry{bottom=2cm}
+
+
+\usepackage{amsmath, amsfonts, amsthm, amssymb, amsopn, amscd}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage[mathscr]{eucal}
+
+\usepackage{hyperref}
+\hypersetup{unicode=true,final=true,colorlinks=true}
+
+\theoremstyle{remark}
+%\newtheorem{exercises}{Упражнения}
+\newtheorem{exercise}{\textbf{Упражнение}}[section]
+\renewcommand{\theexercise}{\textbf{\arabic{exercise}}}
+%\renewcommand{\theexercise}{\textbf{\#\arabic{exercise}}}
+
+
+\title{Листок 02. Методы работы со строками в Python}
+
+\author{А.Н. Лата}
+
+\begin{document} 
+
+%\maketitle
+
+\section*{\centering Листок 02. Методы работы со строками в Python}
+
+\begin{exercisenote}[title=Замечания]
+\begin{itemize}
+    \item для решение приведенных ниже упражнений не требуется создавать (определять) пользовательские функции.
+    \item при решении упражнений полученные результаты выведите на экран с помощью функции {\color{blue}{print()}}.
+    \item позаботесь о том, чтобы выводимый на экран результат был снабжен информацией о нем, там где это необходимо.
+    \item не забывайте писать комментарии к вашему коду
+\end{itemize}
+\end{exercisenote}
+
+%\tableofcontents
+%\section{\centering Ввод и вывод данных}
+
+\textbf{Упражнения}
+\begin{enumerate}
+    \item Преобразуйте строку "python" к заглавным буквам.
+    \item Преобразуйте строку "HELLO" в строчные буквы.
+    \item Сделайте первую букву строки "hello world" заглавной.
+    \item Сделайте заглавными первые буквы каждого слова в строке "hello world python".
+    \item Удалите лишние пробелы в начале и в конце строки " hello world ".
+    \item Замените слово "world" на "Python" в строке "Hello world".
+    \item Найдите индекс первого вхождения подстроки "Python" в строке "I love Python".
+    \item Подсчитайте количество вхождений символа "a" в строке "banana".
+    \item Разделите строку "apple, orange, banana" на список фруктов.
+    \item Соедините элементы списка ['Hello', 'Python'] в строку через пробел.
+    \item Проверьте, начинается ли строка "Hello world" со слова "Hello".
+    \item Проверьте, заканчивается ли строка "Hello world" словом "Python".
+    \item Проверьте, состоит ли строка "abcDEF" только из букв.
+    \item Проверьте, состоит ли строка "123456" только из цифр.
+    \item Проверьте, состоит ли строка " " только из пробелов.
+    \item Центрируйте строку "Hi" до длины 10, используя символ *.
+    \item Дополните строку "42" нулями слева до длины 6.
+    \item Поменяйте регистр символов строки "Hello World" на противоположный.
+    \item Разделите строку "python programming" на список слов.
+    \item Замените все пробелы в строке "good bye world" на символ подчеркивания.
+    \item Преобразуйте строку "Data Science" в верхний регистр.
+    \item Преобразуйте строку "PYTHON" в нижний регистр.
+    \item Сделайте первую букву строки "machine learning" заглавной.
+    \item Сделайте заглавными первые буквы каждого слова в строке "data analysis and visualization".
+    \item Удалите пробелы только слева в строке " leading spaces".
+    \item Удалите пробелы только справа в строке "trailing spaces ".
+    \item Замените все буквы "a" на "o" в строке "banana".
+    \item Найдите индекс первого вхождения подстроки "learn" в строке "I want to learn Python".
+    \item Подсчитайте количество вхождений подстроки "ing" в строке "learning is fun and interesting".
+    \item Разделите строку "red;green;blue" на список цветов по разделителю ";".
+    \item Соедините элементы списка ['Data', 'Science', 'AI'] в строку через дефис (-).
+    \item Проверьте, начинается ли строка "Artificial Intelligence" со слова "Artificial".
+    \item Проверьте, заканчивается ли строка "Deep Learning" словом "Python".
+    \item Проверьте, состоит ли строка "OpenAI" только из букв.
+    \item Проверьте, состоит ли строка "2024" только из цифр.
+    \item Проверьте, состоит ли строка "\textbackslash t\textbackslash n " только из пробельных символов.
+    \item Центрируйте строку "Center" до длины 15, используя символ -.
+    \item Дополните строку "7" нулями слева до длины 4.
+    \item Поменяйте регистр символов строки "Python Is Fun" на противоположный.
+    \item Разделите строку "one two three four" на список слов.
+    \item Замените все пробелы в строке "hello world" на символ "*".
+    \item Преобразуйте строку "MixedCase" в полностью заглавные буквы.
+    \item Преобразуйте строку "MIXEDcase" в полностью строчные буквы.
+    \item Сделайте первую букву каждого слова в строке "welcome to python programming" заглавной.
+    \item Удалите символы "!" с начала и конца строки "!!!Hello!!!".
+    \item Замените первую букву "h" на "H" в строке "hello".
+    \item Найдите индекс подстроки "Py" в строке "Python Programming".
+    \item Подсчитайте количество пробелов в строке "count the spaces here".
+    \item Разделите строку "apple|banana|cherry" на список фруктов по разделителю "|".
+    \item Соедините элементы списка ['2024', 'AI', 'ML'] в строку через пробел.
+    \item Проверьте, начинается ли строка "Hello, Python" со строки "Hi".
+    \item Проверьте, заканчивается ли строка "Learning Python" словом "Python".
+    \item Проверьте, состоит ли строка "Python3" только из букв.
+    \item Проверьте, состоит ли строка "123abc" только из цифр.
+    \item Проверьте, состоит ли строка " " только из пробелов.
+    \item Центрируйте строку "Align" до длины 12, используя символ ".".
+    \item Дополните строку "99" нулями слева до длины 5.
+    \item Поменяйте регистр символов строки "Good Morning" на противоположный.
+    \item Разделите строку "split,this,string" на список слов по разделителю ",".
+    \item Замените все символы "o" в строке "foo bar" на "0".
+    \item Преобразуйте строку "Convert Me" в нижний регистр и затем в верхний.
+    \item Сделайте первую букву строки "data" заглавной, а остальные строчными.
+    \item Замените все вхождения "e" на "3" в строке "test example".
+    \item Найдите индекс первого вхождения буквы "a" в строке "alphabet".
+    \item Подсчитайте количество букв "t" в строке "testing the method".
+    \item Разделите строку "2024/09/18" на список дат по разделителю "/".
+    %\item Соедините элементы списка ['year', 'month', 'day'] в строку через символ "-".
+    \item Проверьте, начинается ли строка "Start Here" со слова "Start".
+    \item Проверьте, заканчивается ли строка "End Game" словом "Game".
+    \item Проверьте, состоит ли строка "OnlyLetters" только из букв.
+    \item Проверьте, состоит ли строка "NoDigits123" только из цифр.
+    \item Проверьте, состоит ли строка "\textbackslash n\textbackslash t " только из пробельных символов.
+    \item Центрируйте строку "Middle" до длины 20, используя символ "*".
+    \item Дополните строку "5" нулями слева до длины 3.
+    \item Поменяйте регистр символов строки "Case Swap" на противоположный.
+    \item Разделите строку "alpha,beta,gamma,delta" на список слов по разделителю ",".
+    \item Замените все пробелы в строке "space here" на "+".
+    \item Преобразуйте строку "Example" в заглавные буквы и затем обратно в строчные.
+    \item Сделайте первую букву каждого слова в строке "learn python programming" заглавной.
+    \item Удалите все символы "*" с начала и конца строки "***star***".
+    \item Замените первую букву "s" на "S" в строке "start".
+    \item Найдите индекс подстроки "gram" в строке "programming".
+    \item Подсчитайте количество букв "m" в строке "programming is fun".
+    \item Разделите строку "key1:value1;key2:value2" на список по разделителю ";".
+    \item Соедините элементы списка ['key1=value1', 'key2=value2'] в строку через ",".
+    \item Проверьте, начинается ли строка "Function test" со слова "Test".
+    \item Проверьте, заканчивается ли строка "Final Test" словом "Test".
+    \item Проверьте, состоит ли строка "Test123" только из букв.
+    \item Проверьте, состоит ли строка "456789" только из цифр.
+    \item Проверьте, состоит ли строка "  \textbackslash t\textbackslash n " только из пробелов.
+    \item Центрируйте строку "Edge" до длины 8, используя символ "+".
+    \item Дополните строку "8" нулями слева до длины 2.
+    \item Поменяйте регистр символов строки "Flip CASE" на противоположный.
+    \item Разделите строку "one|two|three|four" на список слов по разделителю "|".
+    \item Замените все буквы "e" в строке "Elephant" на "3".
+    \item Преобразуйте строку "convert me" в заглавные буквы и затем в нижние.
+    \item Сделайте первую букву строки "python" заглавной, а остальные оставьте без изменений.
+    \item Замените все вхождения "o" на "0" в строке "look for opportunities".
+    \item Найдите индекс первого вхождения подстроки "for" в строке "search for a keyword".
+    \item Подсчитайте количество вхождений подстроки "or" в строке "for or against".
+\end{enumerate}
+
+
+
+\end{document}
