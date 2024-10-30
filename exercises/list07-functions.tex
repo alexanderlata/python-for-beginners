@@ -1,0 +1,76 @@
+\documentclass[a4,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[english, russian]{babel}
+
+
+\usepackage{csquotes}
+\usepackage{epigraph}
+\usepackage{tcolorbox}
+% Определяем окружение для Формата ввода
+\newtcolorbox{inputformat}[1][]{colback=blue!5!white, colframe=blue!65!black,
+    fonttitle=\bfseries, title=Формат ввода, #1}
+
+% Определяем окружение для Формата вывода
+\newtcolorbox{outputformat}[1][]{colback=green!5!white, colframe=green!65!black,
+    fonttitle=\bfseries, title=Формат вывода, #1}
+
+% Определяем окружение для комментария
+\newtcolorbox{exercisecomment}[1][]{colback=yellow!5!white, colframe=yellow!80!black, fonttitle=\bfseries, title=Комментарий, #1}
+
+% Определяем окружение для замечания
+\newtcolorbox{exercisenote}[1][]{colback=red!5!white, colframe=red!80!black, fonttitle=\bfseries, title=Замечание, #1}
+
+
+\usepackage{geometry}
+%\geometry{papersize={20.3 cm,25.4 cm}}
+\geometry{left=2cm}
+\geometry{right=2cm}
+\geometry{top=2cm}
+\geometry{bottom=2cm}
+
+
+\usepackage{amsmath, amsfonts, amsthm, amssymb, amsopn, amscd}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage[mathscr]{eucal}
+
+\usepackage{hyperref}
+\hypersetup{unicode=true,final=true,colorlinks=true}
+
+\theoremstyle{remark}
+%\newtheorem{exercises}{Упражнения}
+\newtheorem{exercise}{\textbf{Упражнение}}[section]
+\renewcommand{\theexercise}{\textbf{\arabic{exercise}}}
+%\renewcommand{\theexercise}{\textbf{\#\arabic{exercise}}}
+
+
+\title{Листок 07. Функции в Python}
+
+\author{А.Н. Лата}
+
+\begin{document} 
+
+%\maketitle
+
+\section*{\centering Листок 07. Функции в Python}
+
+\begin{exercisenote}[title=Замечания]
+\begin{itemize}
+    \item для решение приведенных ниже упражнений требуется создавать (определять) пользовательские функции.
+    \item при решении упражнений полученные результаты выведите на экран с помощью функции {\color{blue}{print()}}.
+    \item позаботесь о том, чтобы выводимый на экран результат был снабжен информацией о нем, там где это необходимо.
+    \item не забывайте писать комментарии к вашему коду
+\end{itemize}
+\end{exercisenote}
+
+\textbf{Упражнения}
+\begin{enumerate}
+    \item Создайте пустой кортеж и выведите его.
+    \item Создайте кортеж с элементами: 1, 2, 3.
+    \item Создайте кортеж с одним элементом 5. \textbf{Обратите внимание на синтаксис.}
+    \item Создайте кортеж с одним элементом 'Hello' и выведите его тип.
+
+\end{enumerate}
+
+\end{document}
