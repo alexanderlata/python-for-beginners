@@ -18,5 +18,4 @@
 |[Листок 03](https://github.com/alexanderlata/python-for-beginners/blob/main/exercises/list03-list.pdf)|Методы работы со списками и списковыми включениями в Python| [Примеры](https://github.com/alexanderlata/python-for-beginners/blob/main/jupyter-notebooks/example03.ipynb)|
 |[Листок 04](https://github.com/alexanderlata/python-for-beginners/blob/main/exercises/list04-tuple.pdf)|Методы работы с кортежами в Python| [Примеры](https://github.com/alexanderlata/python-for-beginners/blob/main/jupyter-notebooks/example04.ipynb)|
 |[Листок 05](https://github.com/alexanderlata/python-for-beginners/blob/main/exercises/list05-if-operation.pdf)|Условный оператор в Python| [Примеры](https://github.com/alexanderlata/python-for-beginners/blob/main/jupyter-notebooks/example05.ipynb)|
-
-
+|[Листок 06](https://github.com/alexanderlata/python-for-beginners/blob/main/exercises/list06-loops.pdf)|Циклы в Python| [Примеры](https://github.com/alexanderlata/python-for-beginners/blob/main/jupyter-notebooks/example06.ipynb)|
