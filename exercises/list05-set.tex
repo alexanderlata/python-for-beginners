@@ -1,0 +1,280 @@
+\documentclass[a4,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[english, russian]{babel}
+
+
+\usepackage{xcolor}
+\usepackage{csquotes}
+\usepackage{epigraph}
+\usepackage{tcolorbox}
+% Определяем окружение для Формата ввода
+\newtcolorbox{inputformat}[1][]{colback=blue!5!white, colframe=blue!65!black,
+    fonttitle=\bfseries, title=Формат ввода, #1}
+
+% Определяем окружение для Формата вывода
+\newtcolorbox{outputformat}[1][]{colback=green!5!white, colframe=green!65!black,
+    fonttitle=\bfseries, title=Формат вывода, #1}
+
+% Определяем окружение для комментария
+\newtcolorbox{exercisecomment}[1][]{colback=yellow!5!white, colframe=yellow!80!black, fonttitle=\bfseries, title=Комментарий, #1}
+
+% Определяем окружение для замечания
+\newtcolorbox{exercisenote}[1][]{colback=red!5!white, colframe=red!80!black, fonttitle=\bfseries, title=Замечание, #1}
+
+
+\usepackage{geometry}
+\geometry{left=2cm}
+\geometry{right=2cm}
+\geometry{top=2cm}
+\geometry{bottom=2cm}
+
+
+\usepackage{amsmath, amsfonts, amsthm, amssymb, amsopn, amscd}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage[mathscr]{eucal}
+
+\usepackage{hyperref}
+\hypersetup{unicode=true,final=true,colorlinks=true}
+
+\theoremstyle{remark}
+\newtheorem{exercise}{\textbf{Упражнение}}[section]
+\renewcommand{\theexercise}{\textbf{\arabic{exercise}}}
+
+
+\title{Листок 05. Методы работы со множествами в Python}
+
+\author{А.Н. Лата}
+
+\begin{document}
+
+%\maketitle
+
+\section*{\centering Листок 05. Методы работы со множествами в Python}
+
+\begin{exercisenote}[title=Замечания]
+\begin{itemize}
+    \item для решения приведённых ниже упражнений не требуется создавать (определять) пользовательские функции, циклы и условные операторы.
+    \item при решении упражнений полученные результаты выведите на экран с помощью функции {\color{blue}{print()}}.
+    \item позаботьтесь о том, чтобы выводимый на экран результат был снабжён информацией о нём, там где это необходимо.
+    \item не забывайте писать комментарии к вашему коду.
+\end{itemize}
+\end{exercisenote}
+
+\textbf{Упражнения}
+
+\begin{exercisecomment}[title=Раздел 1. Создание множеств]
+Множество (\texttt{set}) --- это неупорядоченная коллекция уникальных элементов.
+Создаётся с помощью фигурных скобок \texttt{\{...\}} или функции \texttt{set()}.
+\end{exercisecomment}
+
+\begin{enumerate}
+
+    \item Создайте множество {\color{blue}{\texttt{digits}}}, содержащее цифры от 0 до 4, перечислив их в фигурных скобках. Выведите множество на экран.
+
+    \begin{exercisecomment}
+    Порядок элементов при выводе не гарантирован --- множество не упорядочено.
+    \end{exercisecomment}
+
+    \item Создайте список {\color{blue}{\texttt{numbers = [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5]}}}. Преобразуйте его в множество {\color{blue}{\texttt{unique\_numbers}}} с помощью функции {\color{blue}{\texttt{set()}}}. Выведите исходный список и полученное множество. Объясните в комментарии, почему количество элементов изменилось.
+
+    \item Создайте кортеж {\color{blue}{\texttt{fruits = ('apple', 'banana', 'apple', 'cherry', 'banana')}}}. Преобразуйте его в множество {\color{blue}{\texttt{unique\_fruits}}}. Выведите длину кортежа и длину множества с помощью функции {\color{blue}{\texttt{len()}}}.
+
+    \item Создайте строку {\color{blue}{\texttt{word = 'программирование'}}}. Преобразуйте строку в множество {\color{blue}{\texttt{letters}}}. Выведите множество и его длину. Объясните в комментарии, что хранится в этом множестве.
+
+    \item Попробуйте создать пустое множество двумя способами. Выведите тип каждого объекта с помощью функции {\color{blue}{\texttt{type()}}} и объясните в комментарии разницу:
+
+    \begin{inputformat}
+    \begin{verbatim}
+a = {}
+b = set()
+print(type(a), type(b))
+    \end{verbatim}
+    \end{inputformat}
+
+    \begin{exercisenote}
+    Пустые фигурные скобки \texttt{\{\}} создают пустой \emph{словарь}, а не множество!
+    Для создания пустого множества всегда используйте \texttt{set()}.
+    \end{exercisenote}
+
+\end{enumerate}
+
+\begin{exercisecomment}[title={Раздел 2. Основные методы: add, remove, discard, pop, clear}]
+Методы изменения множества: \texttt{add(x)} --- добавить элемент,
+\texttt{remove(x)} --- удалить (с ошибкой если нет),
+\texttt{discard(x)} --- удалить (без ошибки если нет),
+\texttt{pop()} --- удалить и вернуть произвольный элемент,
+\texttt{clear()} --- очистить всё,
+\texttt{copy()} --- создать независимую копию.
+\end{exercisecomment}
+
+\begin{enumerate}[resume]
+
+    \item Создайте множество {\color{blue}{\texttt{colors = \{'red', 'green', 'blue'\}}}}. Добавьте в него элемент {\color{blue}{\texttt{'yellow'}}} с помощью метода {\color{blue}{\texttt{add()}}}. Затем попробуйте добавить элемент {\color{blue}{\texttt{'red'}}} ещё раз. Выведите множество после каждой операции.
+
+    \begin{exercisecomment}
+    Добавление уже существующего элемента не изменяет множество.
+    \end{exercisecomment}
+
+    \item Создайте множество {\color{blue}{\texttt{langs = \{'Python', 'Java', 'C++', 'JavaScript'\}}}}. Удалите элемент {\color{blue}{\texttt{'Java'}}} с помощью метода {\color{blue}{\texttt{remove()}}}. Выведите результат. Затем попробуйте удалить элемент {\color{blue}{\texttt{'Ruby'}}} тем же методом и запишите в комментарии, что произойдёт.
+
+    \begin{exercisenote}
+    Метод \texttt{remove()} вызывает ошибку \texttt{KeyError}, если удаляемый элемент отсутствует в множестве.
+    \end{exercisenote}
+
+    \item Используя множество {\color{blue}{\texttt{langs}}} из предыдущего упражнения, удалите элемент {\color{blue}{\texttt{'Ruby'}}} с помощью метода {\color{blue}{\texttt{discard()}}}. Выведите множество. Объясните в комментарии, чем {\color{blue}{\texttt{discard()}}} отличается от {\color{blue}{\texttt{remove()}}}.
+
+    \item Создайте множество {\color{blue}{\texttt{sample = \{10, 20, 30, 40, 50\}}}}. Удалите произвольный элемент с помощью метода {\color{blue}{\texttt{pop()}}} и сохраните его в переменную {\color{blue}{\texttt{removed}}}. Выведите удалённый элемент и оставшееся множество.
+
+    \begin{exercisecomment}
+    Метод \texttt{pop()} удаляет и возвращает произвольный элемент. Результат может
+    отличаться при каждом запуске программы.
+    \end{exercisecomment}
+
+    \item Создайте множество {\color{blue}{\texttt{temp = \{1, 2, 3\}}}}. Создайте его независимую копию в переменную {\color{blue}{\texttt{temp\_copy}}} с помощью метода {\color{blue}{\texttt{copy()}}}. Очистите оригинал методом {\color{blue}{\texttt{clear()}}}. Выведите оба объекта и убедитесь, что копия не затронута.
+
+\end{enumerate}
+
+\begin{exercisecomment}[title=Раздел 3. Проверка принадлежности и размер]
+Оператор {\color{blue}{\texttt{in}}} проверяет принадлежность элемента множеству и возвращает
+\texttt{True} или \texttt{False}. Функции \texttt{len()}, \texttt{sum()}, \texttt{min()}, \texttt{max()}
+работают с множествами так же, как со списками и кортежами.
+\end{exercisecomment}
+
+\begin{enumerate}[resume]
+
+    \item Создайте множество {\color{blue}{\texttt{primes = \{2, 3, 5, 7, 11, 13\}}}}. С помощью оператора {\color{blue}{\texttt{in}}} проверьте, входят ли числа \textbf{7}, \textbf{9} и \textbf{13} в это множество. Выведите результат каждой проверки.
+
+    \item Создайте строку {\color{blue}{\texttt{sentence = 'hello world'}}} и множество гласных {\color{blue}{\texttt{vowels = \{'a', 'e', 'i', 'o', 'u'\}}}}. С помощью оператора {\color{blue}{\texttt{in}}} проверьте, входят ли символы \textbf{'e'}, \textbf{'z'} и \textbf{'o'} в множество гласных. Выведите результаты.
+
+    \item Создайте два множества: {\color{blue}{\texttt{a = \{1, 2, 3, 4, 5\}}}} и {\color{blue}{\texttt{b = \{4, 5, 6, 7, 8\}}}}. Выведите количество элементов в каждом множестве с помощью функции {\color{blue}{\texttt{len()}}}, сумму всех элементов с помощью функции {\color{blue}{\texttt{sum()}}} и минимальный элемент с помощью функции {\color{blue}{\texttt{min()}}}.
+
+\end{enumerate}
+
+\begin{exercisecomment}[title=Раздел 4. Операции над множествами]
+В упражнениях 14--18 используйте множества {\color{blue}{\texttt{A = \{1, 2, 3, 4, 5\}}}} и {\color{blue}{\texttt{B = \{4, 5, 6, 7, 8\}}}}.
+Каждую операцию выполните двумя способами: через метод и через оператор.
+\end{exercisecomment}
+
+\begin{enumerate}[resume]
+
+    \item Найдите \textbf{объединение} $A \cup B$ двумя способами: методом {\color{blue}{\texttt{union()}}} и оператором {\color{blue}{\texttt{|}}}. Убедитесь, что результаты совпадают, и выведите их.
+
+    \item Найдите \textbf{пересечение} $A \cap B$ двумя способами: методом {\color{blue}{\texttt{intersection()}}} и оператором {\color{blue}{\texttt{\&}}}. Выведите результат и объясните в комментарии, какие элементы в него вошли.
+
+    \item Найдите \textbf{разность} $A \setminus B$ и $B \setminus A$ двумя способами: методом {\color{blue}{\texttt{difference()}}} и оператором {\color{blue}{\texttt{-}}}. Выведите оба результата. Одинаковы ли они?
+
+    \item Найдите \textbf{симметрическую разность} $(A \setminus B) \cup (B \setminus A)$ двумя способами: методом {\color{blue}{\texttt{symmetric\_difference()}}} и оператором {\color{blue}{\texttt{\^{}}}}. Выведите результат и объясните в комментарии, что содержит симметрическая разность.
+
+    \item Проверьте отношения между множествами {\color{blue}{\texttt{X = \{1, 2, 3\}}}}, {\color{blue}{\texttt{Y = \{1, 2, 3, 4, 5\}}}} и {\color{blue}{\texttt{Z = \{6, 7, 8\}}}}:
+    \begin{itemize}
+        \item является ли \texttt{X} подмножеством \texttt{Y} --- метод {\color{blue}{\texttt{issubset()}}};
+        \item является ли \texttt{Y} надмножеством \texttt{X} --- метод {\color{blue}{\texttt{issuperset()}}};
+        \item не пересекаются ли \texttt{X} и \texttt{Z} --- метод {\color{blue}{\texttt{isdisjoint()}}}.
+    \end{itemize}
+    Выведите все три результата.
+
+\end{enumerate}
+
+\begin{exercisecomment}[title=Раздел 5. Обновление множеств на месте]
+Методы \texttt{update()}, \texttt{intersection\_update()} и \texttt{difference\_update()} изменяют
+исходное множество \emph{на месте} и возвращают \texttt{None}, в отличие от \texttt{union()},
+\texttt{intersection()} и \texttt{difference()}, которые создают и возвращают новый объект.
+\end{exercisecomment}
+
+\begin{enumerate}[resume]
+
+    \item Создайте множество {\color{blue}{\texttt{s = \{1, 2, 3\}}}}. Расширьте его элементами из множества {\color{blue}{\texttt{\{3, 4, 5\}}}} с помощью метода {\color{blue}{\texttt{update()}}}. Выведите результат. Объясните в комментарии, чем {\color{blue}{\texttt{update()}}} отличается от {\color{blue}{\texttt{union()}}}.
+
+    \item Создайте множество {\color{blue}{\texttt{s = \{1, 2, 3, 4, 5\}}}}. Оставьте в нём только общие элементы с {\color{blue}{\texttt{\{3, 4, 5, 6, 7\}}}} с помощью метода {\color{blue}{\texttt{intersection\_update()}}}. Выведите множество до и после операции.
+
+    \item Создайте множество {\color{blue}{\texttt{s = \{1, 2, 3, 4, 5\}}}}. Удалите из него все элементы, которые есть в {\color{blue}{\texttt{\{3, 4, 5, 6\}}}}, с помощью метода {\color{blue}{\texttt{difference\_update()}}}. Выведите результат.
+
+\end{enumerate}
+
+\begin{exercisecomment}[title=Раздел 6. Преобразование типов]
+Множество можно преобразовать в список с помощью \texttt{list()}, в кортеж с помощью \texttt{tuple()},
+а функция \texttt{sorted()} принимает множество и возвращает отсортированный список.
+\end{exercisecomment}
+
+\begin{enumerate}[resume]
+
+    \item Создайте множество {\color{blue}{\texttt{s = \{5, 1, 3, 2, 4\}}}}. Преобразуйте его в список с помощью функции {\color{blue}{\texttt{list()}}}, в кортеж с помощью функции {\color{blue}{\texttt{tuple()}}} и в отсортированный список с помощью функции {\color{blue}{\texttt{sorted()}}}. Выведите каждый результат и его тип.
+
+    \item Создайте список {\color{blue}{\texttt{data = [7, 3, 7, 1, 3, 9, 1, 5]}}}. Преобразуйте его в множество, затем обратно в отсортированный список {\color{blue}{\texttt{unique\_sorted}}}. Выведите исходный список и результат.
+
+    \begin{exercisecomment}
+    Это идиоматичный Python-паттерн для получения отсортированного
+    списка уникальных значений: \texttt{sorted(set(список))}.
+    \end{exercisecomment}
+
+\end{enumerate}
+
+\begin{exercisecomment}[title=Раздел 7. Связь с пройденными темами]
+В этом разделе методы множеств применяются совместно со знаниями из листочков 01--07:
+ввод данных, строковые методы, списки, списковые включения, кортежи.
+\end{exercisecomment}
+
+\begin{enumerate}[resume]
+
+    \item Попросите пользователя ввести слово с помощью функции {\color{blue}{\texttt{input()}}}. Сохраните введённое слово в переменную {\color{blue}{\texttt{word}}}, приведите его к нижнему регистру с помощью метода {\color{blue}{\texttt{lower()}}} и преобразуйте в множество символов. Выведите уникальные буквы и их количество.
+
+    \item Создайте строку {\color{blue}{\texttt{text = 'banana'}}}. Преобразуйте строку в множество символов {\color{blue}{\texttt{char\_set}}}. Создайте множество гласных {\color{blue}{\texttt{vowels = set('aeiou')}}}. Найдите пересечение --- уникальные гласные буквы в слове. Выведите результат.
+
+    \item Создайте два списка с оценками студентов: {\color{blue}{\texttt{group\_a = [5, 4, 3, 5, 4, 3, 5]}}} и {\color{blue}{\texttt{group\_b = [4, 4, 5, 2, 3, 4, 2]}}}. С помощью функции {\color{blue}{\texttt{set()}}} найдите:
+    \begin{itemize}
+        \item оценки, которые встречались в \textbf{обеих} группах (пересечение);
+        \item оценки, которые встречались \textbf{хотя бы в одной} группе (объединение).
+    \end{itemize}
+    Выведите результаты.
+
+    \item Используя \textbf{списковое включение} и функцию {\color{blue}{\texttt{set()}}}, создайте множество {\color{blue}{\texttt{even\_set}}}, содержащее уникальные чётные числа из списка {\color{blue}{\texttt{[1, 2, 3, 4, 4, 6, 6, 8, 8, 10, 2]}}}. Выведите результат.
+
+    \begin{exercisecomment}
+    Сначала создайте список чётных чисел с помощью спискового включения,
+    затем преобразуйте его в множество с помощью функции \texttt{set()}.
+    \end{exercisecomment}
+
+    \item Создайте кортеж {\color{blue}{\texttt{mixed = (1, 'a', 2, 'b', 1, 'a', 3)}}}. Преобразуйте его в множество и выведите уникальные элементы. Затем проверьте с помощью оператора {\color{blue}{\texttt{in}}}, содержит ли множество элемент \textbf{4} и элемент \textbf{'b'}.
+
+\end{enumerate}
+
+\begin{exercisecomment}[title=Раздел 8. Задачи повышенной сложности]
+Задачи этого раздела требуют комбинирования нескольких методов множеств
+и знаний из предыдущих листочков. Попробуйте решить их самостоятельно.
+\end{exercisecomment}
+
+\begin{enumerate}[resume]
+
+    \item Даны два кортежа: {\color{blue}{\texttt{t1 = (1, 2, 3, 4, 5, 5, 4)}}} и {\color{blue}{\texttt{t2 = (3, 4, 5, 6, 7, 7, 6)}}}. Используя операции над множествами, получите:
+    \begin{enumerate}[label=\alph*)]
+        \item список уникальных элементов, принадлежащих только \texttt{t1};
+        \item отсортированный список всех уникальных элементов из обоих кортежей;
+        \item количество общих уникальных элементов.
+    \end{enumerate}
+    Выведите каждый результат.
+
+    \item Попросите пользователя ввести два слова с помощью функции {\color{blue}{\texttt{input()}}}. Используя метод {\color{blue}{\texttt{lower()}}} и операции над множествами, найдите и выведите:
+    \begin{enumerate}[label=\alph*)]
+        \item буквы, которые есть в \textbf{обоих} словах;
+        \item буквы, которые есть только в \textbf{первом} слове;
+        \item общее количество уникальных букв в двух словах вместе.
+    \end{enumerate}
+
+    \item Создайте список {\color{blue}{\texttt{words = ['python', 'java', 'python', 'c',\newline
+    'java', 'rust', 'go', 'rust']}}}. Используя функции {\color{blue}{\texttt{set()}}} и {\color{blue}{\texttt{len()}}}, выведите:
+    \begin{enumerate}[label=\alph*)]
+        \item количество уникальных языков программирования в списке;
+        \item отсортированный список уникальных языков;
+        \item количество дублирующихся записей в списке.
+    \end{enumerate}
+
+    \begin{exercisecomment}
+    Количество дублей вычисляется как разность длин исходного списка и множества:
+    \texttt{len(words) - len(set(words))}.
+    \end{exercisecomment}
+
+\end{enumerate}
+
+\end{document}
