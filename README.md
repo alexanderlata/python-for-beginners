@@ -20,7 +20,7 @@
 |[Листок 04](https://github.com/alexanderlata/python-for-beginners/blob/main/exercises/list04-tuple.pdf)|Методы работы с кортежами в Python| [Примеры](https://github.com/alexanderlata/python-for-beginners/blob/main/jupyter-notebooks/example04.ipynb)|
 |[Листок 05](https://github.com/alexanderlata/python-for-beginners/blob/main/exercises/list05-set.pdf)|Методы работы со множествами в Python|
 |[Листок 06](https://github.com/alexanderlata/python-for-beginners/blob/main/exercises/list06-dict-basic.pdf)|Методы работы со словарями в Python|
-|[Листок 07](https://github.com/alexanderlata/python-for-beginners/blob/main/exercises/list05-if-operation.pdf)|Условный оператор в Python| [Примеры](https://github.com/alexanderlata/python-for-beginners/blob/main/jupyter-notebooks/example05.ipynb)|
-|[Листок 08](https://github.com/alexanderlata/python-for-beginners/blob/main/exercises/list06-loops.pdf)|Циклы в Python| [Примеры](https://github.com/alexanderlata/python-for-beginners/blob/main/jupyter-notebooks/example06.ipynb)|
-|[Листок 09]()|Включения Python|
-|[Листок 10](https://github.com/alexanderlata/python-for-beginners/blob/main/exercises/list07-functions.pdf)|Функции и их особенности в Python| [Примеры](https://github.com/alexanderlata/python-for-beginners/blob/main/jupyter-notebooks/example07.ipynb)|
+|[Листок 07](https://github.com/alexanderlata/python-for-beginners/blob/main/exercises/list07-if-operation.pdf)|Условный оператор в Python| [Примеры](https://github.com/alexanderlata/python-for-beginners/blob/main/jupyter-notebooks/example05.ipynb)|
+|[Листок 08](https://github.com/alexanderlata/python-for-beginners/blob/main/exercises/list08-loops.pdf)|Циклы в Python| [Примеры](https://github.com/alexanderlata/python-for-beginners/blob/main/jupyter-notebooks/example06.ipynb)|
+|[Листок 09]()|Включения в Python|
+|[Листок 10](https://github.com/alexanderlata/python-for-beginners/blob/main/exercises/list10-functions.pdf)|Функции и их особенности в Python| [Примеры](https://github.com/alexanderlata/python-for-beginners/blob/main/jupyter-notebooks/example07.ipynb)|
