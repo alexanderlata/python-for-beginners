@@ -172,7 +172,7 @@ conda activate courses
 Убедитесь, что в командной строке слева написано `(courses)`, и выполните следующую команду — она установит всё необходимое для курса:
 
 ```bash
-conda install -c conda-forge pandas numpy scipy openpyxl jupyter jupyterlab matplotlib seaborn plotly scikit-learn ipykernel statsmodels linearmodels
+conda install -c conda-forge pandas numpy scipy openpyxl jupyter jupyterlab matplotlib seaborn plotly ipykernel
 ```
 
 Это займёт несколько минут. На вопрос `Proceed? [y/n]` снова ответьте `y`.
